@@ -1,0 +1,27 @@
+:host {
+    max-width: 380px;
+  }
+  
+  .film-header-image {
+   
+    background-size: cover;
+  }
+  .hide-text{
+    display: none;
+    color: rgb(44, 37, 24);
+  }
+  .hide-text :hover{
+   display: inline;
+  }
+  .show-text{
+    display: inline;
+  }
+  .show-text-none{
+    display: none;
+  }
+ button :hover{
+  border: 3px solid darkslategray;
+
+ }
+
+ 

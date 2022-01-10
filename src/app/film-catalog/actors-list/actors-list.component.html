@@ -1,0 +1,38 @@
+<!-- <app-search-films (searchF)="makeSearchFilms($event)"></app-search-films> -->
+<!-- <mat-spinner class="spinner-position" *ngIf="activeSpinner"></mat-spinner> -->
+
+
+<h1 style="display: inline;">{{title}}</h1>
+<span><button (click)="finerView()">Перейти к иному пересмотру</button></span>
+
+  <!-- <div class="container-fluid">
+    <div class="row">
+    
+      <div class="col-sm-4" *ngFor="let actor of actorsData ">
+        <app-actor-item [actor]="actor" [counter]="counter" (star)="makeStarActor($event) "></app-actor-item>
+      </div>
+    </div>
+  </div> -->
+
+<div class="d-flex flex-wrap">
+  <div [ngClass]=" toggleClass ? 'card-actor-md': 'card-actor-sm'" id="" *ngFor="let actor of actorsData;index as i "> 
+    <!-- <div class="card-actor-sm" id="" *ngFor="let actor of actorsData ">  -->
+    <app-actor-item [actor]="actor" [toggleClass]="toggleClass"  [counter]="i" (star)="makeStarActor($event) "></app-actor-item>
+  </div>
+</div>
+
+
+
+<div class="main-container ">
+  <div class="fixer-container ">
+    <button color="primary" (click)="setPagingActors()" [class.a]="!variantDisplay" [disabled]="false">Загрузить
+      еще</button>
+  </div>
+</div>
+
+<div class="main-container ">
+  <div class="fixer-container ">
+    <button color="primary" (click)="setPagingSearchFilms()" [class.a]="variantDisplay" [disabled]="false">Загрузить еще
+      поисковый</button>
+  </div>
+</div>

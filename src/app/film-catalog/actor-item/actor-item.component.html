@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="body">
+
+   
+    
+
+    <!-- <img mat-card-image [src]="film.poster_path" onError="this.src='assets/my/fancy/loader.gif;'" alt="{{film.title}}"> -->
+    <button class="img-btn" (click)="oneActor()" (mouseover)="makeOnMouseover($event)" (mouseout)="makeOnMouseout($event)">
+      <img class="card-img-top" [src]="actor.profile_path" alt="{{actor.name}}">
+    </button>
+    <!-- <img *ngIf="loading" src="/assets/loading.gif" alt="loading" /> -->
+
+    <!-- <img [hidden]="loading" (load)="onLoad()" src="{{film.poster_path}}" /> -->
+    <!-- <div class="card-title" #name> -->
+      
+     <div  [ngClass]="makeToggleStyle"><h5>{{actor.name}}</h5></div>
+
+    <!-- </div> -->
+    <div class="card-text" *ngIf="toggleClass">
+      <p>
+        {{actor.known_from_sort | slice:0:28}}...
+
+      </p>
+    </div>
+    <div>
+      <!-- <button color="primary">
+        <i class="material-icons">
+          play_arrow
+        </i>
+      </button>
+      <button color="primary" (click)='makeStarActor()'>
+        <i class="material-icons">
+          menu
+        </i>
+      </button> -->
+      <!-- <button *ngIf="!film.isFavorite;else fab"  color="primary" (click)="starFilm(film)"> -->
+        <!-- <i class="material-icons">star</i>
+      </button> -->
+    </div>
+  </div>
+</div>
+
+
+<!-- <ng-template #fab>
+  <button (click)="startFilm(actor)" color="accent">
+    <i>
+      favorite
+    </i>
+  </button>
+</ng-template> -->

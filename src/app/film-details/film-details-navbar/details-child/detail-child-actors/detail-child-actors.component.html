@@ -1,0 +1,22 @@
+<h4>Вглавных ролях</h4>
+{{film.title}}
+{{film1.title}}
+<!-- <div class="d-flex flex-nowrap" *ngFor="let actor of actors; i as index"> -->
+    <div class="d-flex flex-nowrap " [ngStyle]="{'overflow-x': 'scroll'}">
+      <div   *ngFor="let person of filmCredits.cast" >  
+        <div class="card" style="width: 9rem;"  >
+            <a href="">
+                <img [src]="person.profile_path" class="card-img-top" alt="...">
+            </a>
+       
+            <div class="card-body">
+              <h5 class="card-title">{{person.name}}</h5>
+              <p class="card-text">{{person.character}}</p>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>

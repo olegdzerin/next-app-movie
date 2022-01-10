@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="d-flex">
+    <aside class=" bg-light ">
+      <div class="card" style="width: 18rem;">
+        <img [src]="actor.profile_path" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h4 class="card-title">Персональная информация</h4>
+          <h5 class="card-title">Известность за</h5>
+          <p class="card-text">sdsd</p>
+          <h5 class="card-title">Известно авторство</h5>
+          <p class="card-text">sdsd</p>
+          <h5 class="card-title">Пол</h5>
+          <p class="card-text">sdsd</p>
+          <h5 class="card-title">Место рождения</h5>
+          <p class="card-text">sdsd</p>
+          <h5 class="card-title">Также известность как</h5>
+          <p class="card-text">sdsd</p>
+          <a href="#" class="btn btn-info">Править страницу</a>
+        </div>
+      </div>
+    </aside>
+    <div class="flex-fill  px-5 me-5">
+      <div class="container">
+        <div class="container">
+          <div class="card">
+            <div class="body position-relative" style="height: 400px;">
+              <h1 class="card-title">{{actor.name}}</h1>
+              <br>
+              <h4 class="card-title">Биография</h4>
+              <p class="card-text">{{actor.biography.slice(0,680)}}</p>
+              <span class="position-absolute bottom-0 end-0"><a class="btn text-color-primary">Читать ещё</a></span>
+            </div>
+  
+          </div>
+        </div>
+        <div class="container">
+          <div class="card">
+            <div class="body position-relative" style="height: 400px;">
+              <h4 class="card-title">Известность за</h4>
+              <div class="d-flex known-for flex-nowrap">
+                <div class="" *ngFor="let actorCard of actor.known_for" style="width: 200px;">
+                  <app-actor-detail-item [actorCard]="actorCard"></app-actor-detail-item>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container  mt-5">
+          <ul class="nav">
+            <li class="nav-item">
+              <h4 class="card-title">Актёрское искуство</h4><span>{{actorMovieCredits.length}}</span>
+            </li>
+            <li class="nav-item ms-auto">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Очистить</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Все</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Фильмы</a></li>
+                    <li><a class="dropdown-item" href="#">TV сериалы</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Департамент</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Актерское искуство</a></li>
+                    <li><a class="dropdown-item" href="#">Продакшн</a></li>
+                    <li><a class="dropdown-item" href="#">Режиссура</a></li>
+                    <li><a class="dropdown-item" href="#">Сценарий</a></li>
+                    <li><a class="dropdown-item" href="#">Создатель</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+  
+          </ul>
+          <div class="card">
+            <div class="body position-relative" >
+              <div class="" *ngFor="let credit of actorMovieCredits">
+                <div class="card_title">{{credit.title}}: {{credit.release_date}}</div>
+              </div>
+              <!-- <app-actor-movie-cred-item></app-actor-movie-cred-item> -->
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row" [ngStyle]="{'background-color': 'red','height': '550px'}">
+    <!-- <div class="row ml-3" > -->
+    <div class="col-3 " [ngStyle]="{'background-color': 'red'  ,'opacity': 1}">
+      <div class="card ">
+        <div class="body">
+
+          <div class="card-title " #name [ngStyle]="{'opacity': 1.0}">{{film.title}}</div>
+          <div>{{date}}</div>
+
+          <!-- <img mat-card-image [src]="film.poster_path" onError="this.src='assets/my/fancy/loader.gif;'" alt="{{film.title}}"> -->
+          <button (click)="aboutFilm()">
+            <img class="card-img-top" [src]="film.poster_path" alt="{{film.title}}">
+          </button>
+          <!-- <img *ngIf="loading" src="/assets/loading.gif" alt="loading" /> -->
+
+          <!-- <img [hidden]="loading" (load)="onLoad()" src="{{film.poster_path}}" /> -->
+          <div class="card-text">
+            <!-- <p>ba
+                  {{film.overview | slice:0:120}}...
+          
+                </p> -->
+          </div>
+          <div>
+            <button color="primary">
+              <i class="material-icons">
+                play_arrow
+              </i>
+            </button>
+            <button color="primary">
+              <i class="material-icons">
+                menu
+              </i>
+            </button>
+            <!-- <button *ngIf="!film.isFavorite;else fab"  color="primary" (click)="starFilm(film)"> -->
+            <!-- <i class="material-icons">star</i>
+                </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-9" [ngStyle]="styleConfigDiv()">
+      <div class="d-flex flex-column justify-content-between" [ngStyle]="{'height': '500px'}">
+        <div class="card bg-transparent text-light">
+          <div class="card-body">
+            <h3 class="card-title">{{film.title}} ({{film.release_date|slice:0:4}})</h3>
+            <h4 class="card-title" style="display: inline;">
+              {{film.release_date}}
+            </h4>
+            <h4 style="display: inline;" *ngFor="let item of film.genres">{{item.name}}, </h4>
+            <h4 style="display: inline;">*{{transformRuntime()}} </h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{film.release_date}}</h6>
+            <h4>Обзор</h4>
+            <p class="card-text">{{film.overview}}</p>
+          </div>
+        </div>
+        <div class="row" *ngIf="filmCredits">
+          <div class="col"  *ngFor="let crewMember of filmCredits.crew">
+            <div *ngIf="crewMemberJobSelect(crewMember)" class="border">
+              {{crewMember.name}}
+              {{crewMember.job}}
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="d-flex flex-column">
+          <app-detail-child-actors class="border" [film]="film"></app-detail-child-actors>
+        </div>
+      </div>
+      <div class="col-4">
+        <app-detail-child-sidebar></app-detail-child-sidebar>
+      </div>
+    </div>
+  </div>
+ 

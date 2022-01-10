@@ -1,0 +1,10 @@
+
+:host {
+  max-width: 380px;
+}
+
+.film-header-image {
+  /* background-image: url('../../../assets/1.png'); */
+  background-size: cover;
+}
+
